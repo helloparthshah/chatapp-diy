@@ -3,10 +3,11 @@
     import ChatMessage from './Components/ChatMessage';
     import Signup from './Components/Signup'; 
     import ChatApp from './Components/ChatApp'; 
+    import key from './Components/keys'
 
     const chatkit = new Chatkit({
-      instanceLocator: "v1:us1:367c69d6-7186-46ee-97bb-f87cbbbecd17",
-      key: "b0a5d059-2913-4a6b-b209-86ec8d2ef3b5:eWAcIprpxGojDUVkopLBtc/TbOQ+iUA332EG/hJHvzY="
+      instanceLocator: key.INSTANCE_LOCATOR,
+      key: key.SECRET_KEY
     })
     class App extends Component {
         constructor(props) {

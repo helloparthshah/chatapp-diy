@@ -2,10 +2,9 @@ import React, {Component} from 'react';
     import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
     import MessageList from './MessageList';
     import Input from './Input';
+    import key from './keys'
 
     var name;
-    var number;
-    var room;
 
     class ChatApp extends Component {
         constructor(props) {
@@ -21,20 +20,19 @@ import React, {Component} from 'react';
 
         componentDidMount() {
             const chatManager = new ChatManager({
-                instanceLocator: 'YOUR_INSTANCE_LOCATOR',
+                instanceLocator: key.INSTANCE_LOCATOR,
                 userId: this.props.currentId,
                 tokenProvider: new TokenProvider({
-                    url: 'YOUR_TOKEN_PROVIDER'
+                    url: key.TOKEN_URL
                 })
             })
-            alert("Wait!")
             chatManager
                 .connect()
                 .then(currentUser => {
                     this.setState({ currentUser: currentUser })
                     name=currentUser.id
                     return currentUser.subscribeToRoom({
-                         roomId: "YOUR_ROOM_ID",
+                         roomId: key.ROOM_ID,
                          messageLimit: 100,
                         hooks: {
                             onMessage: message => {
