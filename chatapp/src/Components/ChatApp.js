@@ -21,10 +21,10 @@ import React, {Component} from 'react';
 
         componentDidMount() {
             const chatManager = new ChatManager({
-                instanceLocator: 'v1:us1:367c69d6-7186-46ee-97bb-f87cbbbecd17',
+                instanceLocator: 'YOUR_INSTANCE_LOCATOR',
                 userId: this.props.currentId,
                 tokenProvider: new TokenProvider({
-                    url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/367c69d6-7186-46ee-97bb-f87cbbbecd17/token'
+                    url: 'YOUR_TOKEN_PROVIDER'
                 })
             })
             alert("Wait!")
@@ -34,7 +34,7 @@ import React, {Component} from 'react';
                     this.setState({ currentUser: currentUser })
                     name=currentUser.id
                     return currentUser.subscribeToRoom({
-                         roomId: "cff88da4-9924-4f8e-9d87-5dd020c08798",
+                         roomId: "YOUR_ROOM_ID",
                          messageLimit: 100,
                         hooks: {
                             onMessage: message => {
